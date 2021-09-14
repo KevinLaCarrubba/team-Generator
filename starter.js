@@ -56,7 +56,9 @@ function appMenu() {
         createTeam();
       });
   }
-  //Begin to create the team
+  //Begin to create the team by asking user which type of employee they want to add
+  //Based on the choice we will create that employee object.
+  //Loop through the create team until user is done creating employees
   function createTeam() {
     inquirer
       .prompt([
@@ -105,7 +107,7 @@ function appMenu() {
         },
         {
           type: "input",
-          name: "GitHubUser",
+          name: "github",
           message: "What is the engineer's Github username?",
         },
       ])
@@ -114,7 +116,7 @@ function appMenu() {
           answers.engineerName,
           answers.engineerId,
           answers.engineerEmail,
-          answers.GitHubUser
+          answers.github
         );
         teamMembers.push(engineer);
         idArray.push(answers.engineerId);
@@ -142,7 +144,7 @@ function appMenu() {
         },
         {
           type: "input",
-          name: "internSchool",
+          name: "school",
           message: "What school did the intern go to?",
         },
       ])
@@ -151,7 +153,7 @@ function appMenu() {
           answers.internName,
           answers.internId,
           answers.internEmail,
-          answers.internSchool
+          answers.school
         );
         teamMembers.push(intern);
         idArray.push(answers.internId);
